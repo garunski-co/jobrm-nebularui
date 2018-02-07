@@ -29,4 +29,9 @@ export const MENU_ITEMS: NbMenuItem[] = [
       },
     ],
   },
+  {
+    title: 'Posts',
+    icon: 'nb-paper-plane',
+    link: '/pages/posts',
+  },
 ];

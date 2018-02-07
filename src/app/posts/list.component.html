@@ -1,0 +1,38 @@
+<!-- <nb-card>
+  <nb-card-header>
+    Posts
+  </nb-card-header>
+
+  <nb-card-body>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Text</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let post of posts | async">
+          <td scope="row">{{post.id}}</td>
+          <td>{{post.text}}</td>
+          <td>
+              <a href="#"><i class="nb-edit"></i></a>
+              <a href="#"><i class="nb-trash"></i></a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </nb-card-body>
+</nb-card> -->
+
+<nb-card>
+  <nb-card-header>
+    Posts
+  </nb-card-header>
+
+  <nb-card-body>
+    <ng2-smart-table [settings]="settings" [source]="source" (delete)="onDelete($event)" (create)="onAdd()" (edit)="onEdit($event)">
+    </ng2-smart-table>
+  </nb-card-body>
+</nb-card>

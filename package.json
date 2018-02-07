@@ -54,6 +54,7 @@
     "intl": "1.2.5",
     "ionicons": "2.0.1",
     "nebular-icons": "1.0.6",
+    "ng2-smart-table": "1.2.2",
     "ngrx-store-freeze": "0.2.1",
     "normalize.css": "7.0.0",
     "pace-js": "1.0.2",
