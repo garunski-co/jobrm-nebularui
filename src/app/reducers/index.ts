@@ -5,18 +5,18 @@ import * as fromRouter from '@ngrx/router-store';
 
 import { storeFreeze } from 'ngrx-store-freeze';
 
-export interface State {
+export interface RouterState {
   router: fromRouter.RouterReducerState<RouterStateUrl>;
 }
 
-export const reducers: ActionReducerMap<State> = {
+export const reducers: ActionReducerMap<RouterState> = {
   router: fromRouter.routerReducer,
 };
 
-export function logger(reducer: ActionReducer<State>): ActionReducer<State> {
-  return function(state: State, action: any): State {
+export function logger(reducer: ActionReducer<RouterState>): ActionReducer<RouterState> {
+  return function(state: RouterState, action: any): RouterState {
     return reducer(state, action);
   };
 }
 
-export const metaReducers: MetaReducer<State>[] = !environment.production ? [logger, storeFreeze] : [];
+export const metaReducers: MetaReducer<RouterState>[] = !environment.production ? [logger, storeFreeze] : [];

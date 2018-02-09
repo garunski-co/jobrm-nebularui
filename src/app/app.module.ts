@@ -17,13 +17,21 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
-import { StoreRouterConnectingModule, RouterStateSerializer } from '@ngrx/router-store';
+import {
+  StoreRouterConnectingModule,
+  RouterStateSerializer,
+} from '@ngrx/router-store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 import { reducers, metaReducers } from './reducers';
 import { CustomRouterStateSerializer } from './reducers/router.state';
 
 import { environment } from '../environments/environment';
+
+import { ReactiveFormsModule } from '@angular/forms';
+import { FormlyModule } from '@ngx-formly/core';
+import { FormlyBootstrapModule } from '@ngx-formly/bootstrap';
+import { validationMessages } from './formly.messages';
 
 @NgModule({
   declarations: [AppComponent],
@@ -32,6 +40,12 @@ import { environment } from '../environments/environment';
     BrowserAnimationsModule,
     HttpModule,
     AppRoutingModule,
+
+    ReactiveFormsModule,
+    FormlyModule.forRoot({
+      validationMessages: validationMessages,
+    }),
+    FormlyBootstrapModule,
 
     NgbModule.forRoot(),
     ThemeModule.forRoot(),
@@ -42,7 +56,7 @@ import { environment } from '../environments/environment';
     }),
 
     StoreDevtoolsModule.instrument({
-      name: 'NgRx Parcel DevTools',
+      name: 'NgRx JobRM DevTools',
       logOnly: environment.production,
     }),
     EffectsModule.forRoot([]),
@@ -53,5 +67,4 @@ import { environment } from '../environments/environment';
     { provide: RouterStateSerializer, useClass: CustomRouterStateSerializer },
   ],
 })
-export class AppModule {
-}
+export class AppModule {}
